@@ -1,4 +1,5 @@
 using UmbracoGraphQLSample.GraphQL.Types;
+using UmbracoGraphQLSample.GraphQL;
 
 namespace UmbracoGraphQLSample.Services;
 
