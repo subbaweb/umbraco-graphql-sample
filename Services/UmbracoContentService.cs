@@ -102,7 +102,7 @@ public partial class UmbracoContentService
         catch (Exception ex)
         {
             _logger.LogError(ex, "Error fetching homepage");
-            throw;
+            return null;
         }
     }
 
@@ -120,7 +120,7 @@ public partial class UmbracoContentService
         catch (Exception ex)
         {
             _logger.LogError(ex, "Error fetching homepage fields");
-            throw;
+            return null;
         }
     }
 
@@ -143,7 +143,7 @@ public partial class UmbracoContentService
         catch (Exception ex)
         {
             _logger.LogError(ex, "Error fetching homepage features");
-            throw;
+            return new List<FeatureType>();
         }
     }
 
@@ -165,7 +165,7 @@ public partial class UmbracoContentService
         catch (Exception ex)
         {
             _logger.LogError(ex, "Error fetching homepage testimonials");
-            throw;
+            return new List<TestimonialType>();
         }
     }
 
@@ -205,7 +205,7 @@ public partial class UmbracoContentService
     /// <summary>
     /// Publish homepage
     /// </summary>
-    public async Task<HomepageType> PublishHomepageAsync()
+    public async Task<HomepageType?> PublishHomepageAsync()
     {
         try
         {
@@ -220,7 +220,7 @@ public partial class UmbracoContentService
         catch (Exception ex)
         {
             _logger.LogError(ex, "Error publishing homepage");
-            throw;
+            return null;
         }
     }
 
@@ -244,7 +244,7 @@ public partial class UmbracoContentService
         catch (Exception ex)
         {
             _logger.LogError(ex, "Error fetching blog posts");
-            throw;
+            return new List<BlogPostType>();
         }
     }
 
@@ -269,7 +269,7 @@ public partial class UmbracoContentService
         catch (Exception ex)
         {
             _logger.LogError(ex, $"Error fetching blog post with ID: {id}");
-            throw;
+            return null;
         }
     }
 
@@ -288,7 +288,7 @@ public partial class UmbracoContentService
         catch (Exception ex)
         {
             _logger.LogError(ex, "Error fetching authors");
-            throw;
+            return new List<AuthorType>();
         }
     }
 
@@ -303,7 +303,7 @@ public partial class UmbracoContentService
         catch (Exception ex)
         {
             _logger.LogError(ex, $"Error fetching author with ID: {id}");
-            throw;
+            return null;
         }
     }
 
@@ -318,7 +318,7 @@ public partial class UmbracoContentService
         catch (Exception ex)
         {
             _logger.LogError(ex, "Error searching blog posts");
-            throw;
+            return new List<BlogPostType>();
         }
     }
 
