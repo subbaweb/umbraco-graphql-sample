@@ -7,21 +7,14 @@
     <InvariantGlobalization>false</InvariantGlobalization>
   </PropertyGroup>
 
-  <!-- Umbraco 17 NuGet Packages -->
-  <ItemGroup>
-    <PackageReference Include="Umbraco.Cms" Version="17.0.0" />
-  </ItemGroup>
-
   <!-- HotChocolate GraphQL NuGet Packages -->
   <ItemGroup>
-    <PackageReference Include="HotChocolate.AspNetCore" Version="14.0.0" />
-    <PackageReference Include="HotChocolate.Types" Version="14.0.0" />
-    <PackageReference Include="HotChocolate.Execution" Version="14.0.0" />
-  </ItemGroup>
-
-  <!-- Additional Dependencies -->
-  <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="10.0.0" />
+    <PackageReference Include="HotChocolate.AspNetCore" Version="14.1.0" />
+    <PackageReference Include="HotChocolate.Types" Version="14.1.0" />
+    <PackageReference Include="HotChocolate.Execution" Version="14.1.0" />
+    <PackageReference Include="HotChocolate.Filtering" Version="14.1.0" />
+    <PackageReference Include="HotChocolate.Projections" Version="14.1.0" />
+    <PackageReference Include="HotChocolate.Sorting" Version="14.1.0" />
   </ItemGroup>
 
 </Project>
