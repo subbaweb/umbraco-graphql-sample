@@ -1,18 +1,8 @@
 using HotChocolate.Execution.Configuration;
-using Umbraco.Cms.Web.Common.DependencyInjection;
 using UmbracoGraphQLSample.GraphQL;
 using UmbracoGraphQLSample.Services;
 
-var builder = WebApplicationBuilder.CreateBuilder(args);
-
-// Add Umbraco
-builder
-    .AddUmbraco(
-        new UmbracoBuilder()
-            .AddBackOffice()
-            .AddWebsite()
-            .Build())
-    .AddComposers();
+var builder = WebApplication.CreateBuilder(args);
 
 // Add HotChocolate GraphQL
 builder.Services
@@ -28,28 +18,17 @@ builder.Services
 builder.Services.AddScoped<UmbracoContentService>();
 builder.Services.AddScoped<GraphQLService>();
 
-var app = builder
-    .Build();
+var app = builder.Build();
 
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/error");
 }
 
-// Use Umbraco
-app.UseUmbraco()
-    .WithMiddleware(u =>
-    {
-        u.UseBackOffice();
-        u.UseWebsite();
-    })
-    .WithEndpoints(u =>
-    {
-        u.UseBackOfficeEndpoints();
-        u.UseWebsiteEndpoints();
-    });
-
 // Map GraphQL endpoint
 app.MapGraphQL("/graphql");
+
+// Map health check
+app.MapGet("/", () => "Umbraco GraphQL Sample - Open https://localhost:5001/graphql");
 
 app.Run();
